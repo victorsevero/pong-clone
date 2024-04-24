@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjjkof4262hlk"]
+
+[ext_resource type="Texture2D" uid="uid://m3d4n2cqpv60" path="res://line.png" id="1_av34l"]
+[ext_resource type="PackedScene" uid="uid://npndp44apnvj" path="res://wall.tscn" id="2_nabv1"]
+
+[node name="Scenario" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Line" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(81, 61)
+texture = ExtResource("1_av34l")
+
+[node name="Wall1" parent="." instance=ExtResource("2_nabv1")]
+
+[node name="Wall2" parent="." instance=ExtResource("2_nabv1")]
+position = Vector2(0, 118)

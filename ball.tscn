@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://db6tch101intn"]
+
+[ext_resource type="Texture2D" uid="uid://4y8f6jxjtfof" path="res://ball.png" id="1_o00l3"]
+[ext_resource type="Script" path="res://ball.gd" id="1_v5yty"]
+[ext_resource type="AudioStream" uid="uid://d3ibiye33rk5m" path="res://bonk.mp3" id="3_mcani"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gohi"]
+size = Vector2(2, 2)
+
+[node name="Ball" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_v5yty")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_o00l3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0gohi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Bonk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mcani")
+max_distance = 100.0
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
